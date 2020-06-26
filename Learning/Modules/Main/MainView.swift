@@ -7,47 +7,37 @@
 
 import SwiftUI
 
-struct Test: Identifiable {
-    var id: ObjectIdentifier
+class Test: Identifiable {
     
-    var title: String
+    var title: String = ""
 }
 struct MainView: View {
-    @State var isToggle: Bool = false
+    @State var isSpeakPressed: Bool = false
     var viewModel: MainViewModel
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
-        NavigationView {
-                
-                ZStack {
-                    
-                    VStack {
-                        Color(.red)
-                        Spacer()
-                        if !self.isToggle {
-                            Button(action: {
-                                withAnimation {
-                                    self.isToggle = true
-                                }
-                                
-                            }) {
-                                ActivityIndicator().frame(width: 100, height: 100)
+            return NavigationView {
+                    ZStack {
+                        VStack {
+                            Color(.red)
+                            Spacer()
+                            if self.viewModel.state == .initial {
+                                Button("Speak", action: {
+                                    withAnimation {
+                                        self.isSpeakPressed.toggle()
+                                    }
+                                }).buttonStyle(SpeakButtonStyle()).frame(width: 80, height: 80).padding()
                             }
+                            
                         }
-                        
+                        if self.isSpeakPressed {
+                            ConversationView(viewModel: ConversationViewModel(router: viewModel.router)).transition(.opacity).edgesIgnoringSafeArea(.all)
+                        }
                     }
-                    if self.isToggle {
-                        ConversationView(viewModel: ConversationViewModel(router: viewModel.router)).transition(.move(edge: .bottom)).edgesIgnoringSafeArea(.all)
-                    }
-                }
-            
-            
-        }.navigationBarTitle("Learning App")
-            
-        
+            }.navigationBarTitle("Learning App")
         
     }
 }

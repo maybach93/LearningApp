@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
-
+struct VisualEffectView: UIViewRepresentable {
+    var effect: UIVisualEffect?
+    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView { UIVisualEffectView() }
+    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) { uiView.effect = effect }
+}
 struct ConversationView: View {
     
-    @State var isToggle: Bool = false
-    
+    @State var isSpeakPressed: Bool = true
     var viewModel: ConversationViewModel
     init(viewModel: ConversationViewModel) {
         self.viewModel = viewModel
@@ -19,25 +22,28 @@ struct ConversationView: View {
     var body: some View {
        // NavigationView {
             ZStack {
-                
+                VisualEffectView(effect: UIBlurEffect(style: .dark))
+                    .edgesIgnoringSafeArea(.all)
+                List(self.viewModel._items) { (item) in
+                    Text("kfeokefoe")
+                }.background(Color.clear)
                 VStack {
                     Spacer()
-                    if self.isToggle {
-                        Button(action: {
-                            self.isToggle = false
-                        }) {
-                                        Text("Start")
-                        }.buttonStyle(SpeakButtonStyle(isSelected: true)).frame(width: 60, height: 60).padding(50)
-                    }
-                    else {
-                        Button(action: {
-                            self.isToggle = true
-                        }) {
-                            Text("Stop")
-                        }.buttonStyle(SpeakButtonStyle(isSelected: true)).frame(width: 60, height: 60).padding(50)
-                    }
+                    Button(action: {
+                        withAnimation {
+                            self.isSpeakPressed.toggle()
+                            self.viewModel.speakButton(isToggled: self.isSpeakPressed)
+                        }
+                        
+                    }) {
+                        if self.isSpeakPressed {
+                            PulsationView().frame(width: 80, height: 80)
+                        }
+                    }.buttonStyle(SpeakButtonStyle()).frame(width: 80, height: 80).padding()
                 }
+
+            }.onAppear {
+                self.viewModel._items.append(Test())
             }
-        //}.navigationBarTitle("Learning App")
     }
 }
