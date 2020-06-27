@@ -24,6 +24,7 @@
 		19D78C9724A67E910026EAD7 /* VoiceCommandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9624A67E910026EAD7 /* VoiceCommandManager.swift */; };
 		19D78C9924A67FE10026EAD7 /* VoiceCommandRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9824A67FE10026EAD7 /* VoiceCommandRecognizer.swift */; };
 		19D78C9C24A6819E0026EAD7 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9B24A6819E0026EAD7 /* NetworkProvider.swift */; };
+		19D78CA024A6F33C0026EAD7 /* LearnNewWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9F24A6F33C0026EAD7 /* LearnNewWordModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		19D78C9624A67E910026EAD7 /* VoiceCommandManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandManager.swift; sourceTree = "<group>"; };
 		19D78C9824A67FE10026EAD7 /* VoiceCommandRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandRecognizer.swift; sourceTree = "<group>"; };
 		19D78C9B24A6819E0026EAD7 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		19D78C9F24A6F33C0026EAD7 /* LearnNewWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnNewWordModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +180,7 @@
 				19D78C9A24A6818E0026EAD7 /* Voice */,
 				19D78C8C24A54B900026EAD7 /* UI */,
 				19D78C8224A52F060026EAD7 /* Router.swift */,
-				19D78C9B24A6819E0026EAD7 /* NetworkProvider.swift */,
+				19D78C9D24A6F3200026EAD7 /* Network */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -217,6 +219,23 @@
 				19D78C9824A67FE10026EAD7 /* VoiceCommandRecognizer.swift */,
 			);
 			path = Voice;
+			sourceTree = "<group>";
+		};
+		19D78C9D24A6F3200026EAD7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				19D78C9E24A6F32F0026EAD7 /* Models */,
+				19D78C9B24A6819E0026EAD7 /* NetworkProvider.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		19D78C9E24A6F32F0026EAD7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				19D78C9F24A6F33C0026EAD7 /* LearnNewWordModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +374,7 @@
 				19D78C7E24A52A590026EAD7 /* MainView.swift in Sources */,
 				19D78C8324A52F060026EAD7 /* Router.swift in Sources */,
 				19D78C5124A5283D0026EAD7 /* LearningApp.swift in Sources */,
+				19D78CA024A6F33C0026EAD7 /* LearnNewWordModel.swift in Sources */,
 				19D78C8F24A54BA40026EAD7 /* ActivityIndicator.swift in Sources */,
 				19D78C8624A5345E0026EAD7 /* SpeakButton.swift in Sources */,
 				19D78C9924A67FE10026EAD7 /* VoiceCommandRecognizer.swift in Sources */,
