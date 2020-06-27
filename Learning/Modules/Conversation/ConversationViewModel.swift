@@ -15,7 +15,7 @@ class ConversationViewModel: ObservableObject {
     private var disposeBag: Set<AnyCancellable> = Set()
     
     var voiceRecogrnizer = VoiceRecognizer()
-    
+    var voiceCommandManager = VoiceCommandManager()
     var items: Binding<[Test]> {
         return Binding<[Test]>(get: { return self._items }, set: {
             self._items = $0
@@ -29,6 +29,9 @@ class ConversationViewModel: ObservableObject {
     func speakButton(isToggled: Bool) {
         if isToggled {
             self.voiceRecogrnizer.stop()
+            voiceCommandManager.appendCommand(command: "").sink { (response) in
+                print("")
+            }.store(in: &disposeBag)
         }
         else {
             self.voiceRecogrnizer.startRecognizing().sink { (completion) in
