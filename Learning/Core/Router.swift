@@ -9,10 +9,12 @@ import Foundation
 import SwiftUI
 
 enum Controllers {
+    case initial
     case main
+    case speak
     case rootView(AnyView)
 }
 
 final class Router: ObservableObject {
-    @Published var firstController: Controllers = .main
+    @Published var firstController: Controllers = .initial
 }

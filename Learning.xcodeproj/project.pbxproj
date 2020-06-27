@@ -25,6 +25,9 @@
 		19D78C9924A67FE10026EAD7 /* VoiceCommandRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9824A67FE10026EAD7 /* VoiceCommandRecognizer.swift */; };
 		19D78C9C24A6819E0026EAD7 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9B24A6819E0026EAD7 /* NetworkProvider.swift */; };
 		19D78CA024A6F33C0026EAD7 /* LearnNewWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9F24A6F33C0026EAD7 /* LearnNewWordModel.swift */; };
+		19D78CA224A7ACD30026EAD7 /* ConversationViewItemsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78CA124A7ACD30026EAD7 /* ConversationViewItemsFactory.swift */; };
+		19D78CA424A8009C0026EAD7 /* ConversationItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78CA324A8009C0026EAD7 /* ConversationItemViewModel.swift */; };
+		19D78CA724A8060B0026EAD7 /* ConversationUserVoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78CA624A8060B0026EAD7 /* ConversationUserVoiceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		19D78C9824A67FE10026EAD7 /* VoiceCommandRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandRecognizer.swift; sourceTree = "<group>"; };
 		19D78C9B24A6819E0026EAD7 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		19D78C9F24A6F33C0026EAD7 /* LearnNewWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnNewWordModel.swift; sourceTree = "<group>"; };
+		19D78CA124A7ACD30026EAD7 /* ConversationViewItemsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewItemsFactory.swift; sourceTree = "<group>"; };
+		19D78CA324A8009C0026EAD7 /* ConversationItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationItemViewModel.swift; sourceTree = "<group>"; };
+		19D78CA624A8060B0026EAD7 /* ConversationUserVoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationUserVoiceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +202,10 @@
 		19D78C8724A53D2A0026EAD7 /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
+				19D78CA524A805EE0026EAD7 /* Cells */,
 				19D78C8824A53D3D0026EAD7 /* ConversationView.swift */,
 				19D78C8A24A53D480026EAD7 /* ConversationViewModel.swift */,
+				19D78CA324A8009C0026EAD7 /* ConversationItemViewModel.swift */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
@@ -236,6 +244,15 @@
 				19D78C9F24A6F33C0026EAD7 /* LearnNewWordModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		19D78CA524A805EE0026EAD7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				19D78CA124A7ACD30026EAD7 /* ConversationViewItemsFactory.swift */,
+				19D78CA624A8060B0026EAD7 /* ConversationUserVoiceCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,10 +384,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19D78CA424A8009C0026EAD7 /* ConversationItemViewModel.swift in Sources */,
+				19D78CA724A8060B0026EAD7 /* ConversationUserVoiceCell.swift in Sources */,
 				19D78C9C24A6819E0026EAD7 /* NetworkProvider.swift in Sources */,
 				19D78C9324A5720C0026EAD7 /* PulsationView.swift in Sources */,
 				19D78C9724A67E910026EAD7 /* VoiceCommandManager.swift in Sources */,
 				19D78C8B24A53D480026EAD7 /* ConversationViewModel.swift in Sources */,
+				19D78CA224A7ACD30026EAD7 /* ConversationViewItemsFactory.swift in Sources */,
 				19D78C7E24A52A590026EAD7 /* MainView.swift in Sources */,
 				19D78C8324A52F060026EAD7 /* Router.swift in Sources */,
 				19D78C5124A5283D0026EAD7 /* LearningApp.swift in Sources */,

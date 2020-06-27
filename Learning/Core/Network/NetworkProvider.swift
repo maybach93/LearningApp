@@ -28,7 +28,7 @@ extension NetworkProvider {
     
     enum NetworkError: LocalizedError {
         case wrongUrl
-        case requestFailed(error: Error)
+        case requestFailed(Error)
         case wrongStatusCode(Int?)
         case emptyData
         
@@ -78,12 +78,38 @@ class NetworkProvider {
         
         return self.getData(request: request, type: type)
     }
-        
+    
+    func requestImageData(name: String) -> Future<Data, NetworkError> {
+        guard let url = URL(string: Constants.serverImagesUrl + name) else {
+            fatalError()
+        }
+    
+        let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        return Future<Data, NetworkError> {[unowned self] promise in
+            URLSession.shared.dataTaskPublisher(for : request).map{ a in
+                return a.data
+              }
+                .receive(on: DispatchQueue.main)
+                .eraseToAnyPublisher()
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        promise(.failure(NetworkError.emptyData))
+                    case .failure(let error):
+                        promise(Result.failure(NetworkError.requestFailed(error)))
+                    }
+                }, receiveValue: { result in
+                    promise(.success(result))
+                })
+                .store(in: &disposeBag)
+        }
+    }
+    
     func getData<T: Decodable>(request: URLRequest, type: T.Type) -> Future<T, NetworkError> {
         return Future<T, NetworkError> {[unowned self] promise in
             URLSession.shared.dataTaskPublisher(for : request).map{ a in
                 return a.data
-              }
+            }
                 .decode(type: T.self, decoder: JSONDecoder())
                 .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
@@ -92,7 +118,7 @@ class NetworkProvider {
                     case .finished:
                         promise(.failure(NetworkError.emptyData))
                     case .failure(let error):
-                        fatalError(error.localizedDescription)
+                        promise(Result.failure(NetworkError.requestFailed(error)))
                     }
                 }, receiveValue: { result in
                     promise(.success(result))
