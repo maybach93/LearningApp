@@ -10,10 +10,10 @@ import SwiftUI
 
 enum ConversationItem {
     case userVoice(String)
-    case command(VoiceCommandResponseProtocol)
+    case command(VoiceCommandResponse)
 }
 
-class ConversationItemModel: Identifiable {
+class ConversationItemModel: ObservableObject, Identifiable {
     var item: ConversationItem
     
     init(item: ConversationItem) {
@@ -21,6 +21,13 @@ class ConversationItemModel: Identifiable {
     }
 }
 
+class ConversationQuizItemModel: ConversationItemModel {
+    @Published var quizItems: [QuizItemViewModel]
+    init(item: QuizItemModel) {
+        self.quizItems = item.options.map({ QuizItemViewModel(answerModel: $0)})
+        super.init(item: .command(item))
+    }
+}
 struct ConversationViewItemsFactory {
     
     func cell(for item: ConversationItemModel) -> some View {
@@ -29,9 +36,15 @@ struct ConversationViewItemsFactory {
         case .userVoice(let message):
             return AnyView(ConversationUserVoiceCell(title: message))
         case .command(let response):
-            return AnyView(ConversationNewWordCell(model: response as! LearnNewWordModel))
-        default:
-            return AnyView(EmptyView())
+            switch response.command {
+            case .learnNewWord:
+                return AnyView(ConversationNewWordCell(model: response as! LearnNewWordModel))
+            case .startQuiz:
+                guard let item = item as? ConversationQuizItemModel, let response = response as? QuizItemModel else { return AnyView(EmptyView()) }
+                return AnyView(ConversationQuizCell(description: response.description, model: item))
+            default:
+                return AnyView(EmptyView()) 
+            }
         }
     }
 }

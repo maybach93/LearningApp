@@ -29,10 +29,10 @@ struct ConversationView: View {
                 List {
                     ForEach(self.viewModel.items) { item in
                         Button(action: {
-                            self.viewModel.dismiss()
+                            
                         }) {
                             self.itemsFactory.cell(for: item)
-                        }.listRowBackground(Color.clear).padding()
+                        }.listRowBackground(Color.clear).padding().transition(.move(edge: .top)).animation(.linear)
                     }
                 }.listStyle(PlainListStyle())
 

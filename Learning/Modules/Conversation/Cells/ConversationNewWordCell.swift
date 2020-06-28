@@ -24,7 +24,7 @@ struct ConversationNewWordCell: View {
             AsyncImage(name: imageName, placeholder: Text("")).frame(idealHeight: UIScreen.main.bounds.width / 2)
             Text(self.word).foregroundColor(Color.white).font(.title2).fontWeight(.medium)
             Text(self.transcription).foregroundColor(Color.white.opacity(0.8)).font(.subheadline)
-            Text(self.description).foregroundColor(Color.white).font(.footnote)
+            Text(self.description).foregroundColor(Color.white).font(.body)
         }
     }
 }
