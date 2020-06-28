@@ -33,6 +33,9 @@
 		19D8809524A8FF4900AEF6CF /* ConversationQuizCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8809424A8FF4900AEF6CF /* ConversationQuizCell.swift */; };
 		19D8809724A8FF7700AEF6CF /* QuizItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8809624A8FF7700AEF6CF /* QuizItemModel.swift */; };
 		19D8809924A8FF9500AEF6CF /* VoiceCommandResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8809824A8FF9500AEF6CF /* VoiceCommandResponse.swift */; };
+		19D8809B24A9487200AEF6CF /* RingChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8809A24A9487200AEF6CF /* RingChart.swift */; };
+		19D8809D24A9496200AEF6CF /* ConversationReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8809C24A9496200AEF6CF /* ConversationReportCell.swift */; };
+		19D8809F24A94DA400AEF6CF /* DialogReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8809E24A94DA400AEF6CF /* DialogReportModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		19D8809424A8FF4900AEF6CF /* ConversationQuizCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationQuizCell.swift; sourceTree = "<group>"; };
 		19D8809624A8FF7700AEF6CF /* QuizItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizItemModel.swift; sourceTree = "<group>"; };
 		19D8809824A8FF9500AEF6CF /* VoiceCommandResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandResponse.swift; sourceTree = "<group>"; };
+		19D8809A24A9487200AEF6CF /* RingChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingChart.swift; sourceTree = "<group>"; };
+		19D8809C24A9496200AEF6CF /* ConversationReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationReportCell.swift; sourceTree = "<group>"; };
+		19D8809E24A94DA400AEF6CF /* DialogReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogReportModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +230,7 @@
 			children = (
 				19D78C8E24A54BA40026EAD7 /* ActivityIndicator.swift */,
 				19D78C9224A5720C0026EAD7 /* PulsationView.swift */,
+				19D8809A24A9487200AEF6CF /* RingChart.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -255,6 +262,7 @@
 				19D78C9F24A6F33C0026EAD7 /* LearnNewWordModel.swift */,
 				19D8809624A8FF7700AEF6CF /* QuizItemModel.swift */,
 				19D8809824A8FF9500AEF6CF /* VoiceCommandResponse.swift */,
+				19D8809E24A94DA400AEF6CF /* DialogReportModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,6 +274,7 @@
 				19314BC024A8156C001D922E /* ConversationViewItemsFactory.swift */,
 				19314BC324A82DE5001D922E /* ConversationNewWordCell.swift */,
 				19D8809424A8FF4900AEF6CF /* ConversationQuizCell.swift */,
+				19D8809C24A9496200AEF6CF /* ConversationReportCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -403,7 +412,9 @@
 				19D78C9324A5720C0026EAD7 /* PulsationView.swift in Sources */,
 				19314BC124A8156C001D922E /* ConversationUserVoiceCell.swift in Sources */,
 				19D8809924A8FF9500AEF6CF /* VoiceCommandResponse.swift in Sources */,
+				19D8809B24A9487200AEF6CF /* RingChart.swift in Sources */,
 				19314BC424A82DE5001D922E /* ConversationNewWordCell.swift in Sources */,
+				19D8809F24A94DA400AEF6CF /* DialogReportModel.swift in Sources */,
 				19D78C9724A67E910026EAD7 /* VoiceCommandManager.swift in Sources */,
 				19D78C8B24A53D480026EAD7 /* ConversationViewModel.swift in Sources */,
 				19D78C7E24A52A590026EAD7 /* MainView.swift in Sources */,
@@ -420,6 +431,7 @@
 				19D78C8024A52A640026EAD7 /* MainViewModel.swift in Sources */,
 				19D8809324A8F93300AEF6CF /* SpeechSynthesisManager.swift in Sources */,
 				19D78C9524A6642F0026EAD7 /* VoiceRecognizer.swift in Sources */,
+				19D8809D24A9496200AEF6CF /* ConversationReportCell.swift in Sources */,
 				19D78C8924A53D3D0026EAD7 /* ConversationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
