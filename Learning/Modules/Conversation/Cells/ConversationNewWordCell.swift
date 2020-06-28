@@ -21,7 +21,7 @@ struct ConversationNewWordCell: View {
     }
     var body: some View {
         VStack {
-            AsyncImage(name: imageName, placeholder: Text("")).frame(idealHeight: UIScreen.main.bounds.width / 2)
+            AsyncImage(name: imageName, placeholder: Text("")).frame(idealHeight: UIScreen.main.bounds.width / 2).cornerRadius(2)
             Text(self.word).foregroundColor(Color.white).font(.title2).fontWeight(.medium)
             Text(self.transcription).foregroundColor(Color.white.opacity(0.8)).font(.subheadline)
             Text(self.description).foregroundColor(Color.white).font(.body)

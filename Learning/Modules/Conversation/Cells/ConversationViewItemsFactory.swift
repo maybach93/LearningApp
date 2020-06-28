@@ -42,6 +42,14 @@ struct ConversationViewItemsFactory {
             case .startQuiz:
                 guard let item = item as? ConversationQuizItemModel, let response = response as? QuizItemModel else { return AnyView(EmptyView()) }
                 return AnyView(ConversationQuizCell(description: response.description, model: item))
+            case .startDialog(let context):
+                switch context {
+                case .none:
+                    return AnyView(EmptyView()) 
+                default:
+                    guard let response = response as? DialogReportModel else { return AnyView(EmptyView()) }
+                    return AnyView(ConversationReportCell(model: response))
+                }
             default:
                 return AnyView(EmptyView()) 
             }
