@@ -35,7 +35,20 @@ struct ConversationView: View {
                         }.listRowBackground(Color.clear).padding().transition(.move(edge: .top)).animation(.linear)
                     }
                 }.listStyle(PlainListStyle())
-
+                VStack {
+                    HStack {
+                        Button(action: {
+                            self.viewModel.dismiss()
+                        }) {
+                            ZStack {
+                                Circle().foregroundColor(Color.black.opacity(0.5)).frame(width: 30, height: 30, alignment: .center)
+                                Image(systemName: "arrow.left").foregroundColor(.gray)
+                            }
+                        }.frame(alignment: .top).padding().padding(.top, 10)
+                        Spacer()
+                    }
+                    Spacer()
+                }
                 VStack {
                     Spacer()
                     Button(action: {

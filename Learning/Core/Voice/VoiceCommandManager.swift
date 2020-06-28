@@ -32,6 +32,11 @@ class VoiceCommandManager {
                     promise(.success(value))
                     self?.speechManager.play(text: value.description)
             }.store(in: &disposeBag)
+            case .startDialog(.answer(_)):
+                network.request(DialogReportModel.self, route: .dialogReport, httpMethod: .get).sink { (error) in
+                } receiveValue: { value in
+                    promise(.success(value))
+            }.store(in: &disposeBag)
             default:
                 break
             }
