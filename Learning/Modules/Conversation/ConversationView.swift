@@ -13,8 +13,8 @@ struct VisualEffectView: UIViewRepresentable {
 }
 struct ConversationView: View {
     
-    @State var isSpeakPressed: Bool = true
-    var viewModel: ConversationViewModel
+    @State var isSpeakPressed: Bool = false
+    @ObservedObject var viewModel: ConversationViewModel
     var itemsFactory: ConversationViewItemsFactory
     
     init(viewModel: ConversationViewModel, itemsFactory: ConversationViewItemsFactory = ConversationViewItemsFactory()) {
@@ -50,6 +50,9 @@ struct ConversationView: View {
                         }
                     }.buttonStyle(SpeakButtonStyle()).frame(width: 80, height: 80).padding()
                 }
-            }.navigationBarHidden(true)
+            }.navigationBarHidden(true).onAppear {
+                self.isSpeakPressed = true
+                self.viewModel.speakButton(isToggled: self.isSpeakPressed)
+            }
     }
 }

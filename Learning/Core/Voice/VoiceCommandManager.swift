@@ -16,8 +16,8 @@ class VoiceCommandManager {
     var speechManager: SpeechSynthesisManager = SpeechSynthesisManager()
     var network: NetworkProvider = NetworkProvider()
     
-    func appendCommand(command: String) -> Future<VoiceCommandResponseProtocol, Never> {
-        return Future<VoiceCommandResponseProtocol, Never>{ [unowned self] promise in
+    func appendCommand(command: String) -> Future<VoiceCommandResponse, Never> {
+        return Future<VoiceCommandResponse, Never>{ [unowned self] promise in
             switch commandRecognizer.append(voiceTranscript: command) {
             case .learnNewWord:
                 network.request(LearnNewWordModel.self, route: .learnNewWord, httpMethod: .get)
@@ -26,6 +26,12 @@ class VoiceCommandManager {
                         promise(.success(value))
                         self?.speechManager.play(text: value.word)
                 }.store(in: &disposeBag)
+            case .startQuiz:
+                network.request(QuizItemModel.self, route: .quiz, httpMethod: .get).sink { (error) in
+                } receiveValue: { [weak self] value in
+                    promise(.success(value))
+                    self?.speechManager.play(text: value.description)
+            }.store(in: &disposeBag)
             default:
                 break
             }

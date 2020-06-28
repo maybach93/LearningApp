@@ -46,8 +46,7 @@ class VoiceRecognizer {
         return Future<String, DefaultError> {[unowned self] promise in
             // Cancel the previous task if it's running.
             #if targetEnvironment(simulator)
-                promise(.success(""))
-                return
+            return
             #endif
             if let recognitionTask = recognitionTask {
                 recognitionTask.cancel()

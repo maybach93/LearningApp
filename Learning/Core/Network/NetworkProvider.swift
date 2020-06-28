@@ -17,6 +17,7 @@ extension NetworkProvider {
     
     enum NetworkRoutes: String {
         case learnNewWord = "voiceRequests/newWord"
+        case quiz = "voiceRequests/quiz"
     }
 
     enum HttpMethod: String {

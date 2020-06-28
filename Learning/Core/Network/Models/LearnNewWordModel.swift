@@ -7,10 +7,7 @@
 
 import Foundation
 
-protocol VoiceCommandResponseProtocol {
-    var command: VoiceCommand { get }
-}
-struct LearnNewWordModel: Decodable, VoiceCommandResponseProtocol {
+struct LearnNewWordModel: Decodable, VoiceCommandResponse {
     
     var command: VoiceCommand {
         .learnNewWord(.none)

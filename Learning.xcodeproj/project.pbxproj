@@ -29,6 +29,7 @@
 		19D78C9C24A6819E0026EAD7 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9B24A6819E0026EAD7 /* NetworkProvider.swift */; };
 		19D78CA024A6F33C0026EAD7 /* LearnNewWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9F24A6F33C0026EAD7 /* LearnNewWordModel.swift */; };
 		19D8809124A8312F00AEF6CF /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8809024A8312F00AEF6CF /* ImageLoader.swift */; };
+		19D8809324A8F93300AEF6CF /* SpeechSynthesisManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8809224A8F93300AEF6CF /* SpeechSynthesisManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		19D78C9B24A6819E0026EAD7 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		19D78C9F24A6F33C0026EAD7 /* LearnNewWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnNewWordModel.swift; sourceTree = "<group>"; };
 		19D8809024A8312F00AEF6CF /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		19D8809224A8F93300AEF6CF /* SpeechSynthesisManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesisManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				19D78C9424A6642F0026EAD7 /* VoiceRecognizer.swift */,
 				19D78C9624A67E910026EAD7 /* VoiceCommandManager.swift */,
 				19D78C9824A67FE10026EAD7 /* VoiceCommandRecognizer.swift */,
+				19D8809224A8F93300AEF6CF /* SpeechSynthesisManager.swift */,
 			);
 			path = Voice;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				19D78C9924A67FE10026EAD7 /* VoiceCommandRecognizer.swift in Sources */,
 				19D8809124A8312F00AEF6CF /* ImageLoader.swift in Sources */,
 				19D78C8024A52A640026EAD7 /* MainViewModel.swift in Sources */,
+				19D8809324A8F93300AEF6CF /* SpeechSynthesisManager.swift in Sources */,
 				19D78C9524A6642F0026EAD7 /* VoiceRecognizer.swift in Sources */,
 				19D78C8924A53D3D0026EAD7 /* ConversationView.swift in Sources */,
 			);

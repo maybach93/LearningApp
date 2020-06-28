@@ -11,7 +11,7 @@ import SwiftUI
 
 class ConversationViewModel: ObservableObject {
     var router: Router
-    @Published  var items: [ConversationItemModel] = []
+    @Published var items: [ConversationItemModel] = []
     private var disposeBag: Set<AnyCancellable> = Set()
     
     var voiceRecogrnizer = VoiceRecognizer()
