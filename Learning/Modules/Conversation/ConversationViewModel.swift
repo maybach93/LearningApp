@@ -29,7 +29,7 @@ class ConversationViewModel: ObservableObject {
         
         if !isToggled {
             self.voiceRecogrnizer.stop()
-                print("")
+            self.items.insert(ConversationItemModel(item: .userVoice("i want to learn a new word")), at: 0)
             voiceCommandManager.appendCommand(command: "i want to learn a new word").sink { (response) in
                 self.items.insert(ConversationItemModel(item: .command(response)), at: 0)
             }.store(in: &disposeBag)
