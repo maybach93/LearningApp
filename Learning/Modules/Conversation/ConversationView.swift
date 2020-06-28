@@ -26,15 +26,16 @@ struct ConversationView: View {
             ZStack {
                 VisualEffectView(effect: UIBlurEffect(style: .dark))
                     .edgesIgnoringSafeArea(.all)
-                List(self.viewModel.items) { (item) in
-                    Button(action: {
-                        self.viewModel.dismiss()
-                    }) {
-                        self.itemsFactory.cell(for: item)
+                List {
+                    ForEach(self.viewModel.items) { item in
+                        Button(action: {
+                            self.viewModel.dismiss()
+                        }) {
+                            self.itemsFactory.cell(for: item)
+                        }.listRowBackground(Color.clear).padding()
                     }
-                    
-                    
-                }.listStyle(PlainListStyle()).opacity(0.3).listRowInsets(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
+                }.listStyle(PlainListStyle())
+
                 VStack {
                     Spacer()
                     Button(action: {
@@ -49,7 +50,6 @@ struct ConversationView: View {
                         }
                     }.buttonStyle(SpeakButtonStyle()).frame(width: 80, height: 80).padding()
                 }
-
-            }
+            }.navigationBarHidden(true)
     }
 }

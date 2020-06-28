@@ -29,7 +29,7 @@ struct ConversationViewItemsFactory {
         case .userVoice(let message):
             return AnyView(ConversationUserVoiceCell(title: message))
         case .command(let response):
-            return AnyView(ConversationNewWordCell())
+            return AnyView(ConversationNewWordCell(model: response as! LearnNewWordModel))
         default:
             return AnyView(EmptyView())
         }

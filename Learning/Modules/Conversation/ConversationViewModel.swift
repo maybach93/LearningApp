@@ -11,7 +11,7 @@ import SwiftUI
 
 class ConversationViewModel: ObservableObject {
     var router: Router
-    @Published  var items: [ConversationItemViewModel] = []
+    @Published  var items: [ConversationItemModel] = []
     private var disposeBag: Set<AnyCancellable> = Set()
     
     var voiceRecogrnizer = VoiceRecognizer()
@@ -30,6 +30,8 @@ class ConversationViewModel: ObservableObject {
         if !isToggled {
             self.voiceRecogrnizer.stop()
                 print("")
+            voiceCommandManager.appendCommand(command: "i want to learn a new word").sink { (response) in
+                self.items.insert(ConversationItemModel(item: .command(response)), at: 0)
             }.store(in: &disposeBag)
         }
         else {

@@ -13,7 +13,7 @@ struct ConversationUserVoiceCell: View {
     
     var body: some View {
         ZStack {
-            Text(self.title).frame(alignment: .leading)
+            Text(self.title).foregroundColor(Color.white).font(.title3).bold().frame(alignment: .leading)
         }
     }
 }
