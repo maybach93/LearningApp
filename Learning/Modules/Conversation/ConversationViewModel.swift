@@ -11,25 +11,24 @@ import SwiftUI
 
 class ConversationViewModel: ObservableObject {
     var router: Router
-    @Published  var _items: [Test] = []
+    @Published  var items: [ConversationItemViewModel] = []
     private var disposeBag: Set<AnyCancellable> = Set()
     
     var voiceRecogrnizer = VoiceRecognizer()
     var voiceCommandManager = VoiceCommandManager()
-    var items: Binding<[Test]> {
-        return Binding<[Test]>(get: { return self._items }, set: {
-            self._items = $0
-        })
-    }
+
     
     init(router: Router) {
         self.router = router
-        self._items.append(Test())
+    }
+    
+    func dismiss() {
+        self.router.firstController = .main
     }
     func speakButton(isToggled: Bool) {
-        if isToggled {
+        
+        if !isToggled {
             self.voiceRecogrnizer.stop()
-            voiceCommandManager.appendCommand(command: "").sink { (response) in
                 print("")
             }.store(in: &disposeBag)
         }
