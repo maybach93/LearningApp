@@ -15,18 +15,26 @@ struct ConversationView: View {
     
     @State var isSpeakPressed: Bool = true
     var viewModel: ConversationViewModel
-    init(viewModel: ConversationViewModel) {
+    var itemsFactory: ConversationViewItemsFactory
+    
+    init(viewModel: ConversationViewModel, itemsFactory: ConversationViewItemsFactory = ConversationViewItemsFactory()) {
         self.viewModel = viewModel
+        self.itemsFactory = itemsFactory
     }
     
     var body: some View {
-       // NavigationView {
             ZStack {
                 VisualEffectView(effect: UIBlurEffect(style: .dark))
                     .edgesIgnoringSafeArea(.all)
-                List(self.viewModel._items) { (item) in
-                    Text("kfeokefoe")
-                }.background(Color.clear)
+                List(self.viewModel.items) { (item) in
+                    Button(action: {
+                        self.viewModel.dismiss()
+                    }) {
+                        self.itemsFactory.cell(for: item)
+                    }
+                    
+                    
+                }.listStyle(PlainListStyle()).opacity(0.3).listRowInsets(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
                 VStack {
                     Spacer()
                     Button(action: {
@@ -42,8 +50,6 @@ struct ConversationView: View {
                     }.buttonStyle(SpeakButtonStyle()).frame(width: 80, height: 80).padding()
                 }
 
-            }.onAppear {
-                self.viewModel._items.append(Test())
             }
     }
 }

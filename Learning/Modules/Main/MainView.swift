@@ -34,10 +34,16 @@ struct MainView: View {
                             
                         }
                         if self.isSpeakPressed {
+                            
                             ConversationView(viewModel: ConversationViewModel(router: viewModel.router)).transition(.opacity).edgesIgnoringSafeArea(.all)
                         }
                     }
-            }.navigationBarTitle("Learning App")
-        
+            }.navigationBarTitle("Learning App").onReceive(self.viewModel.router.$firstController) { (output) in
+                if case .main = output {
+                    withAnimation {
+                        self.isSpeakPressed.toggle()
+                    }
+                }
+            }
     }
 }

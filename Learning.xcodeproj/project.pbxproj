@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19314BC124A8156C001D922E /* ConversationUserVoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19314BBF24A8156C001D922E /* ConversationUserVoiceCell.swift */; };
+		19314BC224A8156C001D922E /* ConversationViewItemsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19314BC024A8156C001D922E /* ConversationViewItemsFactory.swift */; };
+		19314BC424A82DE5001D922E /* ConversationNewWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19314BC324A82DE5001D922E /* ConversationNewWordCell.swift */; };
 		19D78C5124A5283D0026EAD7 /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C5024A5283D0026EAD7 /* LearningApp.swift */; };
 		19D78C5524A5283F0026EAD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19D78C5424A5283F0026EAD7 /* Assets.xcassets */; };
 		19D78C5824A5283F0026EAD7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19D78C5724A5283F0026EAD7 /* Preview Assets.xcassets */; };
@@ -25,9 +28,6 @@
 		19D78C9924A67FE10026EAD7 /* VoiceCommandRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9824A67FE10026EAD7 /* VoiceCommandRecognizer.swift */; };
 		19D78C9C24A6819E0026EAD7 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9B24A6819E0026EAD7 /* NetworkProvider.swift */; };
 		19D78CA024A6F33C0026EAD7 /* LearnNewWordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78C9F24A6F33C0026EAD7 /* LearnNewWordModel.swift */; };
-		19D78CA224A7ACD30026EAD7 /* ConversationViewItemsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78CA124A7ACD30026EAD7 /* ConversationViewItemsFactory.swift */; };
-		19D78CA424A8009C0026EAD7 /* ConversationItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78CA324A8009C0026EAD7 /* ConversationItemViewModel.swift */; };
-		19D78CA724A8060B0026EAD7 /* ConversationUserVoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D78CA624A8060B0026EAD7 /* ConversationUserVoiceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19314BBF24A8156C001D922E /* ConversationUserVoiceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationUserVoiceCell.swift; sourceTree = "<group>"; };
+		19314BC024A8156C001D922E /* ConversationViewItemsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewItemsFactory.swift; sourceTree = "<group>"; };
+		19314BC324A82DE5001D922E /* ConversationNewWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationNewWordCell.swift; sourceTree = "<group>"; };
 		19D78C4D24A5283D0026EAD7 /* Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Learning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D78C5024A5283D0026EAD7 /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		19D78C5424A5283F0026EAD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,9 +75,6 @@
 		19D78C9824A67FE10026EAD7 /* VoiceCommandRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandRecognizer.swift; sourceTree = "<group>"; };
 		19D78C9B24A6819E0026EAD7 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		19D78C9F24A6F33C0026EAD7 /* LearnNewWordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnNewWordModel.swift; sourceTree = "<group>"; };
-		19D78CA124A7ACD30026EAD7 /* ConversationViewItemsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewItemsFactory.swift; sourceTree = "<group>"; };
-		19D78CA324A8009C0026EAD7 /* ConversationItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationItemViewModel.swift; sourceTree = "<group>"; };
-		19D78CA624A8060B0026EAD7 /* ConversationUserVoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationUserVoiceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,7 +205,6 @@
 				19D78CA524A805EE0026EAD7 /* Cells */,
 				19D78C8824A53D3D0026EAD7 /* ConversationView.swift */,
 				19D78C8A24A53D480026EAD7 /* ConversationViewModel.swift */,
-				19D78CA324A8009C0026EAD7 /* ConversationItemViewModel.swift */,
 			);
 			path = Conversation;
 			sourceTree = "<group>";
@@ -249,8 +248,9 @@
 		19D78CA524A805EE0026EAD7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				19D78CA124A7ACD30026EAD7 /* ConversationViewItemsFactory.swift */,
-				19D78CA624A8060B0026EAD7 /* ConversationUserVoiceCell.swift */,
+				19314BBF24A8156C001D922E /* ConversationUserVoiceCell.swift */,
+				19314BC024A8156C001D922E /* ConversationViewItemsFactory.swift */,
+				19314BC324A82DE5001D922E /* ConversationNewWordCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -384,17 +384,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19D78CA424A8009C0026EAD7 /* ConversationItemViewModel.swift in Sources */,
-				19D78CA724A8060B0026EAD7 /* ConversationUserVoiceCell.swift in Sources */,
 				19D78C9C24A6819E0026EAD7 /* NetworkProvider.swift in Sources */,
 				19D78C9324A5720C0026EAD7 /* PulsationView.swift in Sources */,
+				19314BC124A8156C001D922E /* ConversationUserVoiceCell.swift in Sources */,
+				19314BC424A82DE5001D922E /* ConversationNewWordCell.swift in Sources */,
 				19D78C9724A67E910026EAD7 /* VoiceCommandManager.swift in Sources */,
 				19D78C8B24A53D480026EAD7 /* ConversationViewModel.swift in Sources */,
-				19D78CA224A7ACD30026EAD7 /* ConversationViewItemsFactory.swift in Sources */,
 				19D78C7E24A52A590026EAD7 /* MainView.swift in Sources */,
 				19D78C8324A52F060026EAD7 /* Router.swift in Sources */,
 				19D78C5124A5283D0026EAD7 /* LearningApp.swift in Sources */,
 				19D78CA024A6F33C0026EAD7 /* LearnNewWordModel.swift in Sources */,
+				19314BC224A8156C001D922E /* ConversationViewItemsFactory.swift in Sources */,
 				19D78C8F24A54BA40026EAD7 /* ActivityIndicator.swift in Sources */,
 				19D78C8624A5345E0026EAD7 /* SpeakButton.swift in Sources */,
 				19D78C9924A67FE10026EAD7 /* VoiceCommandRecognizer.swift in Sources */,

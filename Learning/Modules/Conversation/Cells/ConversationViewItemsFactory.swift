@@ -8,13 +8,28 @@
 import Foundation
 import SwiftUI
 
+enum ConversationItem {
+    case userVoice(String)
+    case command(VoiceCommandResponseProtocol)
+}
+
+class ConversationItemModel: Identifiable {
+    var item: ConversationItem
+    
+    init(item: ConversationItem) {
+        self.item = item
+    }
+}
+
 struct ConversationViewItemsFactory {
     
-    func cell(for item: ConversationItemViewModel) -> some View {
+    func cell(for item: ConversationItemModel) -> some View {
         
-        switch item.type {
-        case .userVoice:
-            return AnyView(ConversationUserVoiceCell(title: item.title))
+        switch item.item {
+        case .userVoice(let message):
+            return AnyView(ConversationUserVoiceCell(title: message))
+        case .command(let response):
+            return AnyView(ConversationNewWordCell())
         default:
             return AnyView(EmptyView())
         }

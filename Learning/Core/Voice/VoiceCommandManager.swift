@@ -8,9 +8,6 @@
 import Foundation
 import Combine
 
-class VoiceCommandResponse {
-    
-}
 class VoiceCommandManager {
     
     private var disposeBag: Set<AnyCancellable> = Set()
@@ -18,13 +15,13 @@ class VoiceCommandManager {
     var commandRecognizer: VoiceCommandRecognizer = VoiceCommandRecognizer()
     var network: NetworkProvider = NetworkProvider()
     
-    func appendCommand(command: String) -> Future<VoiceCommandResponse, Never> {
-        return Future<VoiceCommandResponse, Never>{ [unowned self] promise in
+    func appendCommand(command: String) -> Future<VoiceCommandResponseProtocol, Never> {
+        return Future<VoiceCommandResponseProtocol, Never>{ [unowned self] promise in
             switch commandRecognizer.append(voiceTranscript: command) {
             case .learnNewWord:
                 network.request(LearnNewWordModel.self, route: .learnNewWord, httpMethod: .get).sink { (error) in
                     print()
-                } receiveValue: { _ in promise(.success(VoiceCommandResponse())) }.store(in: &disposeBag)
+                } receiveValue: { value in promise(.success(value)) }.store(in: &disposeBag)
             default:
                 break
             }
