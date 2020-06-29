@@ -17,6 +17,8 @@ extension NetworkProvider {
     
     enum NetworkRoutes: String {
         case learnNewWord = "voiceRequests/newWord"
+        case quiz = "voiceRequests/quiz"
+        case dialogReport = "voiceRequests/dialog_post"
     }
 
     enum HttpMethod: String {
@@ -58,22 +60,13 @@ extension NetworkProvider {
 
 class NetworkProvider {
     private var disposeBag: Set<AnyCancellable> = Set()
-    
-//        func getImageData(imageName: String, completionQueue: DispatchQueue = .main, completion: @escaping (Result<Data, NetworkError>) -> ()) {
-//
-//            let urlString = serverImagesUrl + imageName
-//            getData(from: urlString, completionQueue: completionQueue, completion: completion)
-//        }
-        
-        
-        // MARK: - Main methods
-        
+
     func request<T: Decodable>( _ type: T.Type, route: NetworkRoutes, httpMethod: HttpMethod) -> Future<T, NetworkError> {
         guard let url = URL(string: Constants.serverApiUrl + route.rawValue) else {
             fatalError()
         }
     
-        var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        var request = URLRequest(url: url, cachePolicy: .reloadRevalidatingCacheData, timeoutInterval: 10)
         request.httpMethod = httpMethod.rawValue
         
         return self.getData(request: request, type: type)
@@ -84,7 +77,7 @@ class NetworkProvider {
             fatalError()
         }
     
-        let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
+        let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 10)
         return Future<Data, NetworkError> {[unowned self] promise in
             URLSession.shared.dataTaskPublisher(for : request).map{ a in
                 return a.data

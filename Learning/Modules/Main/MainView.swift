@@ -25,19 +25,25 @@ struct MainView: View {
                             Color(.red)
                             Spacer()
                             if self.viewModel.state == .initial {
-                                Button("Speak", action: {
+                                Button("", action: {
                                     withAnimation {
                                         self.isSpeakPressed.toggle()
                                     }
-                                }).buttonStyle(SpeakButtonStyle()).frame(width: 80, height: 80).padding()
+                                }).buttonStyle(SpeakButtonStyle(state: self.isSpeakPressed ? .pulsating : .ready)).frame(width: 70, height: 70).padding()
                             }
                             
                         }
                         if self.isSpeakPressed {
+                            
                             ConversationView(viewModel: ConversationViewModel(router: viewModel.router)).transition(.opacity).edgesIgnoringSafeArea(.all)
                         }
                     }
-            }.navigationBarTitle("Learning App")
-        
+            }.navigationBarTitle("Learning App").onReceive(self.viewModel.router.$firstController) { (output) in
+                if case .main = output {
+                    withAnimation {
+                        self.isSpeakPressed.toggle()
+                    }
+                }
+            }
     }
 }

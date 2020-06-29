@@ -7,6 +7,14 @@
 
 import Foundation
 
-struct LearnNewWordModel: Decodable {
+struct LearnNewWordModel: Decodable, VoiceCommandResponse {
     
+    var command: VoiceCommand {
+        .learnNewWord(.none)
+    }
+    
+    var word: String
+    var transcription: String
+    var description: String
+    var imageUrl: String?
 }

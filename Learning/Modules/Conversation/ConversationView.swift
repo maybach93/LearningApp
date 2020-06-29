@@ -13,37 +13,63 @@ struct VisualEffectView: UIViewRepresentable {
 }
 struct ConversationView: View {
     
-    @State var isSpeakPressed: Bool = true
-    var viewModel: ConversationViewModel
-    init(viewModel: ConversationViewModel) {
+    @State var speakButtonState: SpeakButtonStyle.ButtonState = .ready
+    @ObservedObject var viewModel: ConversationViewModel
+    var itemsFactory: ConversationViewItemsFactory
+    
+    init(viewModel: ConversationViewModel, itemsFactory: ConversationViewItemsFactory = ConversationViewItemsFactory()) {
         self.viewModel = viewModel
+        self.itemsFactory = itemsFactory
     }
     
     var body: some View {
-       // NavigationView {
             ZStack {
                 VisualEffectView(effect: UIBlurEffect(style: .dark))
                     .edgesIgnoringSafeArea(.all)
-                List(self.viewModel._items) { (item) in
-                    Text("kfeokefoe")
-                }.background(Color.clear)
+                List {
+                    ForEach(self.viewModel.items) { item in
+                        Button(action: {
+                            
+                        }) {
+                            self.itemsFactory.cell(for: item)
+                        }.listRowBackground(Color.clear).transition(.move(edge: .top)).animation(.linear).padding([.leading, .trailing], 20).padding(.top, 30)
+                    }
+                }.listStyle(PlainListStyle())
+                VStack {
+                    HStack {
+                        Button(action: {
+                            self.viewModel.dismiss()
+                        }) {
+                            ZStack {
+                                Circle().foregroundColor(Color.black.opacity(0.5)).frame(width: 30, height: 30, alignment: .center)
+                                Image(systemName: "arrow.left").foregroundColor(.gray)
+                            }
+                        }.frame(alignment: .top).padding().padding(.top, 10)
+                        Spacer()
+                    }
+                    Spacer()
+                }
                 VStack {
                     Spacer()
-                    Button(action: {
+                    Button("", action: {
                         withAnimation {
-                            self.isSpeakPressed.toggle()
-                            self.viewModel.speakButton(isToggled: self.isSpeakPressed)
+                            switch speakButtonState {
+                            case .ready:
+                                self.viewModel.speakButton(isToggled: true)
+                                self.speakButtonState = .pulsating
+                            case .pulsating:
+                                self.viewModel.speakButton(isToggled: false)
+                                self.speakButtonState = .processing
+                            default:
+                                break
+                            }
                         }
                         
-                    }) {
-                        if self.isSpeakPressed {
-                            PulsationView().frame(width: 80, height: 80)
-                        }
-                    }.buttonStyle(SpeakButtonStyle()).frame(width: 80, height: 80).padding()
+                    }).buttonStyle(SpeakButtonStyle(state: self.speakButtonState)).frame(width: 70, height: 70).padding()
                 }
-
-            }.onAppear {
-                self.viewModel._items.append(Test())
+            }.navigationBarHidden(true).onAppear {
+                self.speakButtonState = .pulsating
+                self.viewModel.speakButton(isToggled: true)
             }
     }
 }

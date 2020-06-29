@@ -45,6 +45,9 @@ class VoiceRecognizer {
     private func startRecording() -> Future<String, DefaultError> {
         return Future<String, DefaultError> {[unowned self] promise in
             // Cancel the previous task if it's running.
+            #if targetEnvironment(simulator)
+            return
+            #endif
             if let recognitionTask = recognitionTask {
                 recognitionTask.cancel()
                 self.recognitionTask = nil
@@ -64,9 +67,6 @@ class VoiceRecognizer {
     
             recognitionRequest.shouldReportPartialResults = false
             
-            #if targetEnvironment(simulator)
-                return
-            #endif
             let inputNode = audioEngine.inputNode
             
             recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest) { [weak self] result, error in

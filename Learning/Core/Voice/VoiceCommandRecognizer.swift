@@ -7,7 +7,7 @@
 
 import Foundation
 enum VoiceCommand {
-    case learnNewWord
+    case learnNewWord(ContexualCommand)
     case startQuiz(ContexualCommand)
     case describePicture(ContexualCommand)
     case startDialog(ContexualCommand)
@@ -18,6 +18,6 @@ enum ContexualCommand {
 }
 class VoiceCommandRecognizer {
     func append(voiceTranscript: String) -> VoiceCommand {
-        return .learnNewWord
+        return .learnNewWord(.none)
     }
 }
