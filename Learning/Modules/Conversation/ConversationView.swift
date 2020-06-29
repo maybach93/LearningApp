@@ -13,7 +13,7 @@ struct VisualEffectView: UIViewRepresentable {
 }
 struct ConversationView: View {
     
-    @State var isSpeakPressed: Bool = false
+    @State var speakButtonState: SpeakButtonStyle.ButtonState = .ready
     @ObservedObject var viewModel: ConversationViewModel
     var itemsFactory: ConversationViewItemsFactory
     
@@ -32,7 +32,7 @@ struct ConversationView: View {
                             
                         }) {
                             self.itemsFactory.cell(for: item)
-                        }.listRowBackground(Color.clear).padding().transition(.move(edge: .top)).animation(.linear)
+                        }.listRowBackground(Color.clear).transition(.move(edge: .top)).animation(.linear).padding([.leading, .trailing], 20).padding(.top, 30)
                     }
                 }.listStyle(PlainListStyle())
                 VStack {
@@ -51,21 +51,25 @@ struct ConversationView: View {
                 }
                 VStack {
                     Spacer()
-                    Button(action: {
+                    Button("", action: {
                         withAnimation {
-                            self.isSpeakPressed.toggle()
-                            self.viewModel.speakButton(isToggled: self.isSpeakPressed)
+                            switch speakButtonState {
+                            case .ready:
+                                self.viewModel.speakButton(isToggled: true)
+                                self.speakButtonState = .pulsating
+                            case .pulsating:
+                                self.viewModel.speakButton(isToggled: false)
+                                self.speakButtonState = .processing
+                            default:
+                                break
+                            }
                         }
                         
-                    }) {
-                        if self.isSpeakPressed {
-                            PulsationView().frame(width: 80, height: 80)
-                        }
-                    }.buttonStyle(SpeakButtonStyle()).frame(width: 80, height: 80).padding()
+                    }).buttonStyle(SpeakButtonStyle(state: self.speakButtonState)).frame(width: 70, height: 70).padding()
                 }
             }.navigationBarHidden(true).onAppear {
-                self.isSpeakPressed = true
-                self.viewModel.speakButton(isToggled: self.isSpeakPressed)
+                self.speakButtonState = .pulsating
+                self.viewModel.speakButton(isToggled: true)
             }
     }
 }

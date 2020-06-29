@@ -25,11 +25,11 @@ struct MainView: View {
                             Color(.red)
                             Spacer()
                             if self.viewModel.state == .initial {
-                                Button("Speak", action: {
+                                Button("", action: {
                                     withAnimation {
                                         self.isSpeakPressed.toggle()
                                     }
-                                }).buttonStyle(SpeakButtonStyle()).frame(width: 80, height: 80).padding()
+                                }).buttonStyle(SpeakButtonStyle(state: self.isSpeakPressed ? .pulsating : .ready)).frame(width: 70, height: 70).padding()
                             }
                             
                         }
