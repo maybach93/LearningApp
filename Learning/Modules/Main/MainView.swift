@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var isSpeakPressed: Bool = false
-    var viewModel: MainViewModel
+    @ObservedObject var viewModel: MainViewModel
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
     }
@@ -19,18 +19,18 @@ struct MainView: View {
             ZStack {
                 Color(.main).edgesIgnoringSafeArea(.all)
                 List {
-                    SummoryWidgetView().listRowBackground(Color.clear)
+         
+                    SummaryWidgetView(viewModel: SummaryWidgetViewModel(router: viewModel.router)).listRowBackground(Color.clear).padding([.top, .bottom], 10)
+                   
                     Button {
                     } label: {
                         ZStack {
                             HStack {
                                 Image(systemName: "pencil.circle.fill").resizable().frame(width: 25, height: 25, alignment: .center).foregroundColor(Color.blue)
-                                Text("My profile").font(.title2).fontWeight(.medium).frame(alignment: .leading)
+                                Text("My profile").font(.body).fontWeight(.medium).frame(alignment: .leading)
                                 Spacer()
-                                
                             }
-
-                        }.frame(maxHeight: 80)
+                        }
                     }.listRowBackground(Color.clear)
 
                     Button {
@@ -38,12 +38,10 @@ struct MainView: View {
                     } label: {
                         ZStack {
                             HStack {
-                                Image(systemName: "books.vertical.fill").foregroundColor(Color.yellow)
-                                Text("Vocabulary").font(.title2).fontWeight(.medium).frame(alignment: .leading)
+                                Image(systemName: "books.vertical.fill").resizable().frame(width: 25, height: 22, alignment: .center).foregroundColor(Color(.brightYellow))
+                                Text("Vocabulary").font(.body).fontWeight(.medium).frame(alignment: .leading)
                                 Spacer()
-                                
                             }
-
                         }
                     }.listRowBackground(Color.clear)
                     Button {
@@ -51,11 +49,9 @@ struct MainView: View {
                         ZStack {
                             HStack {
                                 Image(systemName: "archivebox.circle.fill").resizable().frame(width: 25, height: 25, alignment: .center).foregroundColor(Color.green)
-                                Text("Grammar").font(.title2).fontWeight(.medium).frame(alignment: .leading)
+                                Text("Grammar").font(.body).fontWeight(.medium).frame(alignment: .leading)
                                 Spacer()
-                                
                             }
-
                         }
                     }.listRowBackground(Color.clear)
                     Button {
@@ -64,9 +60,8 @@ struct MainView: View {
                         ZStack {
                             HStack {
                                 Image(systemName: "archivebox.circle").resizable().frame(width: 25, height: 25, alignment: .center).foregroundColor(Color.red)
-                                Text("Recent practice").font(.title2).fontWeight(.medium).frame(alignment: .leading)
+                                Text("Recent practice").font(.body).fontWeight(.medium).frame(alignment: .leading)
                                 Spacer()
-                                
                             }
 
                         }
@@ -74,15 +69,14 @@ struct MainView: View {
                     .listRowBackground(Color.clear)
                     Button {
                     } label: {
-                        ZStack {
+                        
                             HStack {
                                 Image(systemName: "gearshape.fill").resizable().frame(width: 25, height: 25, alignment: .center).foregroundColor(Color.orange)
-                                Text("Settings").font(.title2).fontWeight(.medium).frame(alignment: .leading)
+                                Text("Settings").font(.body).fontWeight(.medium).frame(alignment: .leading)
                                 Spacer()
-                                
                             }
 
-                        }
+                        
                     }.listRowBackground(Color.clear)
                 }.listRowInsets(EdgeInsets(top: 40, leading: 0, bottom: 40, trailing: 20)).animation(.none)
                 
