@@ -26,7 +26,7 @@ struct SpeakButtonStyle: ButtonStyle {
                     .overlay(
                         Circle()
                             .fill(Color.blue)
-                            .opacity(configuration.isPressed ? 0.8 : 0.2)
+                            .opacity(configuration.isPressed ? 1 : 0.2)
                     ).frame(width: 60, height: 60)
                     .overlay(
                         configuration.label
@@ -40,10 +40,10 @@ struct SpeakButtonStyle: ButtonStyle {
                     .foregroundColor(.red)
                     .overlay(
                         Circle()
-                            .fill(Color.blue)
+                            .fill(Color.red)
                             .opacity(0.2)
                     ).frame(width: 60, height: 60)
-                    .shadow(color: Color.blue, radius: 20, x: 0, y: 0)
+                    .shadow(color: Color.red, radius: 20, x: 0, y: 0)
                 Image("speak").renderingMode(.template).foregroundColor(.white)
             case .processing:
                 Circle()
@@ -51,10 +51,10 @@ struct SpeakButtonStyle: ButtonStyle {
                     .foregroundColor(.orange)
                     .overlay(
                         Circle()
-                            .fill(Color.blue)
+                            .fill(Color.orange)
                             .opacity(0.2)
                     ).frame(width: 60, height: 60)
-                    .shadow(color: Color.blue, radius: 20, x: 0, y: 0)
+                    .shadow(color: .orange, radius: 20, x: 0, y: 0)
                 ActivityIndicator().frame(width: 40, height: 40)
             }
             
