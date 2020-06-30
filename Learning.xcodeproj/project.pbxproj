@@ -36,6 +36,8 @@
 		19D8809B24A9487200AEF6CF /* RingChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8809A24A9487200AEF6CF /* RingChart.swift */; };
 		19D8809D24A9496200AEF6CF /* ConversationReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8809C24A9496200AEF6CF /* ConversationReportCell.swift */; };
 		19D8809F24A94DA400AEF6CF /* DialogReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D8809E24A94DA400AEF6CF /* DialogReportModel.swift */; };
+		19D880A324AAB60B00AEF6CF /* SummoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D880A224AAB60B00AEF6CF /* SummoryWidgetView.swift */; };
+		19D880A524ABE07100AEF6CF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D880A424ABE07100AEF6CF /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		19D8809A24A9487200AEF6CF /* RingChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingChart.swift; sourceTree = "<group>"; };
 		19D8809C24A9496200AEF6CF /* ConversationReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationReportCell.swift; sourceTree = "<group>"; };
 		19D8809E24A94DA400AEF6CF /* DialogReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogReportModel.swift; sourceTree = "<group>"; };
+		19D880A224AAB60B00AEF6CF /* SummoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummoryWidgetView.swift; sourceTree = "<group>"; };
+		19D880A424ABE07100AEF6CF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,7 @@
 				19D78C8424A5344E0026EAD7 /* Views */,
 				19D78C7D24A52A590026EAD7 /* MainView.swift */,
 				19D78C7F24A52A640026EAD7 /* MainViewModel.swift */,
+				19D880A224AAB60B00AEF6CF /* SummoryWidgetView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 				19D78C8E24A54BA40026EAD7 /* ActivityIndicator.swift */,
 				19D78C9224A5720C0026EAD7 /* PulsationView.swift */,
 				19D8809A24A9487200AEF6CF /* RingChart.swift */,
+				19D880A424ABE07100AEF6CF /* UIColorExtension.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -422,9 +428,11 @@
 				19D78C5124A5283D0026EAD7 /* LearningApp.swift in Sources */,
 				19D8809524A8FF4900AEF6CF /* ConversationQuizCell.swift in Sources */,
 				19D78CA024A6F33C0026EAD7 /* LearnNewWordModel.swift in Sources */,
+				19D880A524ABE07100AEF6CF /* UIColorExtension.swift in Sources */,
 				19D8809724A8FF7700AEF6CF /* QuizItemModel.swift in Sources */,
 				19314BC224A8156C001D922E /* ConversationViewItemsFactory.swift in Sources */,
 				19D78C8F24A54BA40026EAD7 /* ActivityIndicator.swift in Sources */,
+				19D880A324AAB60B00AEF6CF /* SummoryWidgetView.swift in Sources */,
 				19D78C8624A5345E0026EAD7 /* SpeakButton.swift in Sources */,
 				19D78C9924A67FE10026EAD7 /* VoiceCommandRecognizer.swift in Sources */,
 				19D8809124A8312F00AEF6CF /* ImageLoader.swift in Sources */,

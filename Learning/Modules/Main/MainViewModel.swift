@@ -11,11 +11,11 @@ import SwiftUI
 class MainViewModel: ObservableObject {
     var router: Router
     @Published private(set) var state: State = .initial
-    @Published var items: [Test]
+
     
     init(router: Router) {
         self.router = router
-        self.items = []
+
     }
     
     func speakToggled() {
