@@ -40,8 +40,8 @@ struct SummaryWidgetView: View {
                                     RingView(
                                         percentage: 1,
                                         backgroundColor: .clear,
-                                        startColor: Color.black.opacity(0.2),
-                                        endColor: Color.black.opacity(0.2),
+                                        startColor: Color.black.opacity(0.1),
+                                        endColor: Color.black.opacity(0.1),
                                         thickness: 16
                                     )
                                         .frame(width: 100, height: 100)
