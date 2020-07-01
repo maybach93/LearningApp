@@ -44,7 +44,7 @@ struct ConversationView: View {
                                 Circle().foregroundColor(Color.black.opacity(0.5)).frame(width: 30, height: 30, alignment: .center)
                                 Image(systemName: "arrow.left").foregroundColor(.gray)
                             }
-                        }.frame(alignment: .top).padding().padding(.top, 10)
+                        }.frame(alignment: .top).padding().padding(.top, 20)
                         Spacer()
                     }
                     Spacer()
@@ -67,7 +67,7 @@ struct ConversationView: View {
                         
                     }).buttonStyle(SpeakButtonStyle(state: self.speakButtonState)).frame(width: 70, height: 70).padding()
                 }
-            }.navigationBarHidden(true).onAppear {
+            }.onAppear {
                 self.speakButtonState = .pulsating
                 self.viewModel.speakButton(isToggled: true)
             }

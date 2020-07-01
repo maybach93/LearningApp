@@ -37,8 +37,11 @@ class ConversationViewModel: ObservableObject {
         else {
             self.voiceRecogrnizer.startRecognizing().sink { (completion) in
                 
-            } receiveValue: { (value) in
-                
+            } receiveValue: { [weak self] (value) in
+                guard let self = self else { return }
+                self.voiceCommandManager.appendCommand(command: value).sink { (response) in
+                    self.items.insert(ConversationItemModel(item: .command(response)), at: 0)
+                }.store(in: &self.disposeBag)
             }.store(in: &disposeBag)
         }
     }

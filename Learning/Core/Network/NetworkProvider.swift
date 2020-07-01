@@ -19,6 +19,7 @@ extension NetworkProvider {
         case learnNewWord = "voiceRequests/newWord"
         case quiz = "voiceRequests/quiz"
         case dialogReport = "voiceRequests/dialog_post"
+        case summary = "profile/summary"
     }
 
     enum HttpMethod: String {
@@ -66,7 +67,7 @@ class NetworkProvider {
             fatalError()
         }
     
-        var request = URLRequest(url: url, cachePolicy: .reloadRevalidatingCacheData, timeoutInterval: 10)
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         request.httpMethod = httpMethod.rawValue
         
         return self.getData(request: request, type: type)
