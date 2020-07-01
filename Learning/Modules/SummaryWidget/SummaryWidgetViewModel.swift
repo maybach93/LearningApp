@@ -6,24 +6,29 @@
 //
 
 import Foundation
+import Combine
 
 class SummaryWidgetViewModel: ObservableObject {
     var router: Router
-    @Published private(set) var state: State = .loading
+    private var disposeBag: Set<AnyCancellable> = Set()
     
+    @Published private(set) var state: State = .loading
     var network: NetworkProvider = NetworkProvider()
     
     init(router: Router) {
         self.router = router
        
-        network.request(<#T##type: Decodable.Protocol##Decodable.Protocol#>, route: <#T##NetworkProvider.NetworkRoutes#>, httpMethod: <#T##NetworkProvider.HttpMethod#>)
-        
+        network.request(SummaryModel.self, route: .summary, httpMethod: .get).sink { (error) in
+        } receiveValue: { [weak self] (value) in
+            self?.state = .presented(value)
+        }.store(in: &disposeBag)
+
         
     }
 }
 extension SummaryWidgetViewModel {
     enum State {
         case loading
-        case presented
+        case presented(SummaryModel)
     }
 }
