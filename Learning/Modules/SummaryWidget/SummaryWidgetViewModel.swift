@@ -9,13 +9,16 @@ import Foundation
 import Combine
 
 class SummaryWidgetViewModel: ObservableObject {
-    var router: Router
+    var router: Router?
     private var disposeBag: Set<AnyCancellable> = Set()
     
     @Published private(set) var state: State = .loading
     var network: NetworkProvider = NetworkProvider()
     
-    init(router: Router) {
+    init(model: SummaryModel) {
+        self.state = .presented(model)
+    }
+    init(router: Router? = nil) {
         self.router = router
        
         network.request(SummaryModel.self, route: .summary, httpMethod: .get).sink { (error) in

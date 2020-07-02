@@ -8,6 +8,55 @@
 import Foundation
 import SwiftUI
 
+struct SummaryWidgetRingView: View {
+    
+    var thickness: CGFloat = 22
+    var model: SummaryModel
+    
+    var body: some View {
+        VStack {
+        
+            ZStack {
+                RingView(
+                    percentage: 1,
+                    backgroundColor: .clear,
+                    startColor: Color.black.opacity(0.1),
+                    endColor: Color.black.opacity(0.1),
+                    thickness: thickness
+                )
+                    
+                RingView(
+                    percentage: Double(model.words.completed) / Double(model.words.total),
+                    backgroundColor: .clear,
+                    startColor: Color(.brightYellow),
+                    endColor: Color(.brightYellow),
+                    thickness: thickness
+                )
+                   
+                    .aspectRatio(contentMode: .fit)
+                RingView(
+                    percentage: Double(model.grammar.completed) / Double(model.grammar.total),
+                    backgroundColor: .clear,
+                    startColor: .green,
+                    endColor: .green,
+                    thickness: thickness
+                )
+    
+                    .aspectRatio(contentMode: .fit)
+                RingView(
+                    percentage: Double(model.practice.completed) / Double(model.practice.total),
+                    backgroundColor: .clear,
+                    startColor: .red,
+                    endColor: .red,
+                    thickness: thickness
+                )
+         
+                    .aspectRatio(contentMode: .fit)
+            }
+        }
+    }
+}
+
 struct SummaryWidgetView: View {
     
     @ObservedObject var viewModel: SummaryWidgetViewModel
@@ -19,7 +68,7 @@ struct SummaryWidgetView: View {
     var body: some View {
         switch viewModel.state {
         case .loading:
-            return AnyView(EmptyView().frame(height: 320))
+            return AnyView(Color(.white).opacity(0.9).cornerRadius(28).frame(height: 332))
         case .presented(let model):
             return AnyView(
                 ZStack {
@@ -34,47 +83,9 @@ struct SummaryWidgetView: View {
                             Spacer()
                         }
                         HStack {
-                            VStack {
-                            
-                                ZStack {
-                                    RingView(
-                                        percentage: 1,
-                                        backgroundColor: .clear,
-                                        startColor: Color.black.opacity(0.1),
-                                        endColor: Color.black.opacity(0.1),
-                                        thickness: 16
-                                    )
-                                        .frame(width: 100, height: 100)
-                                    RingView(
-                                        percentage: Double(model.words.completed) / Double(model.words.total),
-                                        backgroundColor: .clear,
-                                        startColor: Color(.brightYellow),
-                                        endColor: Color(.brightYellow),
-                                        thickness: 16
-                                    )
-                                        .frame(width: 100, height: 100)
-                                        .aspectRatio(contentMode: .fit)
-                                    RingView(
-                                        percentage: Double(model.grammar.completed) / Double(model.grammar.total),
-                                        backgroundColor: .clear,
-                                        startColor: .green,
-                                        endColor: .green,
-                                        thickness: 16
-                                    )
-                                    .frame(width: 100, height: 100)
-                                        .aspectRatio(contentMode: .fit)
-                                    RingView(
-                                        percentage: Double(model.practice.completed) / Double(model.practice.total),
-                                        backgroundColor: .clear,
-                                        startColor: .red,
-                                        endColor: .red,
-                                        thickness: 16
-                                    )
-                                    .frame(width: 100, height: 100)
-                                        .aspectRatio(contentMode: .fit)
-                                }
-                                Spacer()
-                            }.padding(.leading, 10)
+                            SummaryWidgetRingView(model: model).frame(width: 120, height: 120)
+                            Spacer()
+                        
                             
                             VStack {
                             
