@@ -37,6 +37,11 @@ class VoiceCommandManager {
                 } receiveValue: { value in
                     promise(.success(value))
             }.store(in: &disposeBag)
+            case .startDialog(.none):
+                network.request(DialogModel.self, route: .dialog, httpMethod: .get).sink { (error) in
+                } receiveValue: { value in
+                    promise(.success(value))
+            }.store(in: &disposeBag)
             default:
                 break
             }

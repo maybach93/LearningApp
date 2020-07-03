@@ -40,7 +40,7 @@ struct ConversationView: View {
                                 Circle().foregroundColor(Color.black.opacity(0.5)).frame(width: 30, height: 30, alignment: .center)
                                 Image(systemName: "arrow.left").foregroundColor(.gray)
                             }
-                        }.frame(alignment: .top).padding().padding(.top, 20)
+                        }.frame(alignment: .top).padding().padding(.top, 15)
                         Spacer()
                     }
                     Spacer()

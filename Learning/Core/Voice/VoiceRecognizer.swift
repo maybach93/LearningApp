@@ -24,10 +24,10 @@ class VoiceRecognizer {
     
     func startRecognizing() -> AnyPublisher<String, DefaultError> {
         
-        let authorization = Future<Void, DefaultError> {[unowned self] promise in
+        let authorization = Future<Void, DefaultError> { promise in
 
             SFSpeechRecognizer.requestAuthorization {
-                [unowned self] (authStatus) in
+                (authStatus) in
                 switch authStatus {
                 case .authorized:
                     promise(.success(()))
@@ -46,7 +46,7 @@ class VoiceRecognizer {
         return Future<String, DefaultError> {[unowned self] promise in
             // Cancel the previous task if it's running.
             #if targetEnvironment(simulator)
-            return
+                return
             #endif
             if let recognitionTask = recognitionTask {
                 recognitionTask.cancel()
