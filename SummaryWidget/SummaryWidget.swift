@@ -53,6 +53,6 @@ struct SummaryWidget: Widget {
                     placeholder: PlaceholderView()) { entry in
             SummaryWidgetEntryView(entry: entry)
             }
-        .configurationDisplayName("Summary").supportedFamilies([.systemSmall])
+        .configurationDisplayName("Summary").supportedFamilies([.systemLarge])
     }
 }

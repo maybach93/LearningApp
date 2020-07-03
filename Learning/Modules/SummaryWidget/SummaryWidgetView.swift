@@ -108,8 +108,7 @@ struct SummaryWidgetPlanView: View {
             
             VStack {
                 ForEach(model.plan) { (item) in
-                    Link(destination: <#T##URL#>, label: <#T##() -> _#>)
-                    ,label: {
+                    Link(destination: URL(string: "plans/\(item.id)")!) {
                         ZStack {
                             Color(.black).opacity(0.1).cornerRadius(10)
                             HStack {
@@ -160,6 +159,5 @@ struct SummaryWidgetView: View {
                     }
                 }.frame(maxHeight: 380))
         }
-        
     }
 }
