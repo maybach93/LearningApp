@@ -16,3 +16,4 @@ This app is all about learning english through speaking. Just press "speak" butt
 
 #### Home
 ![](Resources/home.png)
+![](Resources/learnNewWords.gif)
