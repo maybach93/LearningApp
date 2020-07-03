@@ -14,16 +14,17 @@ struct DefaultError: Error {
     
 }
 class VoiceRecognizer {
+    
+    //MARK: - Private variables
+    
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
-    
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
-    
     private var recognitionTask: SFSpeechRecognitionTask?
-    
     private let audioEngine = AVAudioEngine()
     
-    func startRecognizing() -> AnyPublisher<String, DefaultError> {
-        
+    //MARK: - Public
+    
+    public func startRecognizing() -> AnyPublisher<String, DefaultError> {
         let authorization = Future<Void, DefaultError> { promise in
 
             SFSpeechRecognizer.requestAuthorization {
@@ -38,16 +39,20 @@ class VoiceRecognizer {
         }
         return authorization.flatMap({ _ in self.startRecording() }).eraseToAnyPublisher()
     }
-    func stop() {
+    
+    public func stop() {
         audioEngine.stop()
         recognitionRequest?.endAudio()
     }
+    
+    //MARK: Private
+    
     private func startRecording() -> Future<String, DefaultError> {
         return Future<String, DefaultError> {[unowned self] promise in
-            // Cancel the previous task if it's running.
             #if targetEnvironment(simulator)
-                return
-            #endif
+            promise(.failure(DefaultError()))
+            #else
+
             if let recognitionTask = recognitionTask {
                 recognitionTask.cancel()
                 self.recognitionTask = nil
@@ -95,6 +100,7 @@ class VoiceRecognizer {
             audioEngine.prepare()
             
             try? audioEngine.start()
+            #endif
         }
     }
 }
