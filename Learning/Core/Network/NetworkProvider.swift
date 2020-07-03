@@ -19,6 +19,7 @@ extension NetworkProvider {
         case learnNewWord = "voiceRequests/newWord"
         case quiz = "voiceRequests/quiz"
         case dialogReport = "voiceRequests/dialog_post"
+        case dialog = "voiceRequests/dialog"
         case summary = "profile/summary"
     }
 

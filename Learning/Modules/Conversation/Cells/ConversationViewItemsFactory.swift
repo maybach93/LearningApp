@@ -45,7 +45,8 @@ struct ConversationViewItemsFactory {
             case .startDialog(let context):
                 switch context {
                 case .none:
-                    return AnyView(EmptyView()) 
+                    guard let response = response as? DialogModel else { return AnyView(EmptyView()) }
+                    return AnyView(ConversationDialogCell(model: response))
                 default:
                     guard let response = response as? DialogReportModel else { return AnyView(EmptyView()) }
                     return AnyView(ConversationReportCell(model: response))

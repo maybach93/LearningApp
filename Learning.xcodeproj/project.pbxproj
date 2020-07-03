@@ -56,6 +56,8 @@
 		19D880CB24AD339600AEF6CF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D880A424ABE07100AEF6CF /* UIColorExtension.swift */; };
 		19D880CE24AD521500AEF6CF /* SummaryWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D880CC24AD51FF00AEF6CF /* SummaryWidgetEntryView.swift */; };
 		19D880D024AD57F700AEF6CF /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D880CF24AD57F700AEF6CF /* VisualEffectView.swift */; };
+		19D880D324AFAAEA00AEF6CF /* ConversationDialogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D880D224AFAAEA00AEF6CF /* ConversationDialogCell.swift */; };
+		19D880D524AFAB1100AEF6CF /* DialogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D880D424AFAB1100AEF6CF /* DialogModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +147,8 @@
 		19D880BB24AD2EE200AEF6CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19D880CC24AD51FF00AEF6CF /* SummaryWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryWidgetEntryView.swift; sourceTree = "<group>"; };
 		19D880CF24AD57F700AEF6CF /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		19D880D224AFAAEA00AEF6CF /* ConversationDialogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDialogCell.swift; sourceTree = "<group>"; };
+		19D880D424AFAB1100AEF6CF /* DialogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +337,7 @@
 				19D8809824A8FF9500AEF6CF /* VoiceCommandResponse.swift */,
 				19D8809E24A94DA400AEF6CF /* DialogReportModel.swift */,
 				19D880A824AC02DD00AEF6CF /* SummaryModel.swift */,
+				19D880D424AFAB1100AEF6CF /* DialogModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				19314BC324A82DE5001D922E /* ConversationNewWordCell.swift */,
 				19D8809424A8FF4900AEF6CF /* ConversationQuizCell.swift */,
 				19D8809C24A9496200AEF6CF /* ConversationReportCell.swift */,
+				19D880D224AFAAEA00AEF6CF /* ConversationDialogCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -541,6 +547,7 @@
 			files = (
 				19D78C9C24A6819E0026EAD7 /* NetworkProvider.swift in Sources */,
 				19D78C9324A5720C0026EAD7 /* PulsationView.swift in Sources */,
+				19D880D324AFAAEA00AEF6CF /* ConversationDialogCell.swift in Sources */,
 				19314BC124A8156C001D922E /* ConversationUserVoiceCell.swift in Sources */,
 				19D8809924A8FF9500AEF6CF /* VoiceCommandResponse.swift in Sources */,
 				19D880D024AD57F700AEF6CF /* VisualEffectView.swift in Sources */,
@@ -562,6 +569,7 @@
 				19D880A324AAB60B00AEF6CF /* SummaryWidgetView.swift in Sources */,
 				19D78C8624A5345E0026EAD7 /* SpeakButton.swift in Sources */,
 				19D78C9924A67FE10026EAD7 /* VoiceCommandRecognizer.swift in Sources */,
+				19D880D524AFAB1100AEF6CF /* DialogModel.swift in Sources */,
 				19D8809124A8312F00AEF6CF /* ImageLoader.swift in Sources */,
 				19D78C8024A52A640026EAD7 /* MainViewModel.swift in Sources */,
 				19D8809324A8F93300AEF6CF /* SpeechSynthesisManager.swift in Sources */,
