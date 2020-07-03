@@ -39,7 +39,7 @@ struct SummaryWidgetEntryView : View {
                     SummaryWidgetProgressView(model: entry.model).padding([.top, .bottom], 20)
                 }
             })
-        case .systemLarge:
+        default:
             AnyView(ZStack {
                 Color(UIColor.main)
                 VStack {
