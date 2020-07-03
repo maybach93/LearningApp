@@ -95,6 +95,34 @@ struct SummaryWidgetProgressView: View {
         }
     }
 }
+
+struct SummaryWidgetPlanView: View {
+    var model: SummaryModel
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Text("Today's plan:").foregroundColor(.black).font(.footnote).fontWeight(.bold).padding(.leading, 15)
+                Spacer()
+            }
+            
+            VStack {
+                ForEach(model.plan) { (item) in
+                    Link(destination: <#T##URL#>, label: <#T##() -> _#>)
+                    ,label: {
+                        ZStack {
+                            Color(.black).opacity(0.1).cornerRadius(10)
+                            HStack {
+                                Text(item.name).foregroundColor(.blue).font(.caption).fontWeight(.medium)
+                            Image(systemName: "chevron.right.circle.fill").foregroundColor(.blue).opacity(0.6)
+                            }
+                        }.frame(minHeight: 25)
+                    }
+                }
+            }.padding([.leading,.trailing,.bottom], 15)
+        }
+    }
+}
 struct SummaryWidgetView: View {
     
     @ObservedObject var viewModel: SummaryWidgetViewModel
@@ -128,26 +156,7 @@ struct SummaryWidgetView: View {
                             SummaryWidgetProgressView(model: model)
                             
                         }
-                        HStack {
-                            Text("Today's plan:").foregroundColor(.black).font(.footnote).fontWeight(.bold).padding(.leading, 15)
-                            Spacer()
-                        }
-                        
-                        VStack {
-                            ForEach(model.plan) { (item) in
-                                Button {
-                                } label: {
-                                    ZStack {
-                                        Color(.black).opacity(0.1).cornerRadius(10)
-                                        HStack {
-                                            Text(item.name).foregroundColor(.blue).font(.caption).fontWeight(.medium)
-                                        Image(systemName: "chevron.right.circle.fill").foregroundColor(.blue).opacity(0.6)
-                                        }
-                                    }.frame(minHeight: 25)
-                                }
-                            }
-                        }.padding([.leading,.trailing,.bottom], 15)
-                        
+                        SummaryWidgetPlanView(model: model)
                     }
                 }.frame(maxHeight: 380))
         }
