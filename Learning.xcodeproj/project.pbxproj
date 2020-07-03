@@ -262,7 +262,6 @@
 		19D78C7C24A529F00026EAD7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				19D78C8424A5344E0026EAD7 /* Views */,
 				19D78C7D24A52A590026EAD7 /* MainView.swift */,
 				19D78C7F24A52A640026EAD7 /* MainViewModel.swift */,
 			);
@@ -280,14 +279,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		19D78C8424A5344E0026EAD7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				19D78C8524A5345E0026EAD7 /* SpeakButton.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		19D78C8724A53D2A0026EAD7 /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +294,7 @@
 		19D78C8C24A54B900026EAD7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				19D78C8524A5345E0026EAD7 /* SpeakButton.swift */,
 				19D78C8E24A54BA40026EAD7 /* ActivityIndicator.swift */,
 				19D78C9224A5720C0026EAD7 /* PulsationView.swift */,
 				19D8809A24A9487200AEF6CF /* RingChart.swift */,
