@@ -10,10 +10,19 @@ import SwiftUI
 
 class MainViewModel: ObservableObject {
     var router: Router
-    @Published var items: [Test]
+    @Published private(set) var state: State = .initial
     
     init(router: Router) {
         self.router = router
-        self.items = []
+    }
+    
+    func speakToggled() {
+        self.state = .speak
+    }
+}
+extension MainViewModel {
+    enum State {
+        case initial
+        case speak
     }
 }

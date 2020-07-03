@@ -8,31 +8,57 @@
 import Foundation
 import SwiftUI
 struct SpeakButtonStyle: ButtonStyle {
-    @State private var isAnimating: Bool = false
-    var isSelected: Bool = false
-    init(isSelected: Bool) {
-        self.isSelected = isSelected
+    enum ButtonState {
+        case ready
+        case pulsating
+        case processing
     }
-    func makeBody(configuration: ButtonStyleConfiguration) -> some View {
-        EmptyView()
+    
+    @State public var state: ButtonState = .ready
 
-//        Circle()
-//            .fill()
-//            .overlay(
-//                Circle()
-//                    .fill(Color.white)
-//                    .opacity(configuration.isPressed ? 0.3 : 0)
-//            )
-//            .overlay(
-//                Circle()
-//                    .stroke(lineWidth: 2)
-//                    .foregroundColor(configuration.isPressed ? .white : .black)
-//                    .padding(4)
-//            )
-//            .overlay(
-//                configuration.label
-//                    .foregroundColor(.white)
-//            )
+    func makeBody(configuration: ButtonStyleConfiguration) -> some View {
+        ZStack {
+            switch state {
+            case .ready:
+                Circle()
+                    .fill()
+                    .foregroundColor(.blue)
+                    .overlay(
+                        Circle()
+                            .fill(Color.blue)
+                            .opacity(configuration.isPressed ? 1 : 0.2)
+                    ).frame(width: 60, height: 60)
+                    .overlay(
+                        configuration.label
+                            .foregroundColor(.white)
+                    ).shadow(color: Color.blue, radius: 20, x: 0, y: 0)
+                Image("speak").renderingMode(.template).foregroundColor(.white)
+            case .pulsating:
+                PulsationView().frame(width: 70, height: 70)
+                Circle()
+                    .fill()
+                    .foregroundColor(.red)
+                    .overlay(
+                        Circle()
+                            .fill(Color.red)
+                            .opacity(0.2)
+                    ).frame(width: 60, height: 60)
+                    .shadow(color: Color.red, radius: 20, x: 0, y: 0)
+                Image("speak").renderingMode(.template).foregroundColor(.white)
+            case .processing:
+                Circle()
+                    .fill()
+                    .foregroundColor(.orange)
+                    .overlay(
+                        Circle()
+                            .fill(Color.orange)
+                            .opacity(0.2)
+                    ).frame(width: 60, height: 60)
+                    .shadow(color: .orange, radius: 20, x: 0, y: 0)
+                ActivityIndicator().frame(width: 40, height: 40)
+            }
+            
+        }
     }
             
 }
