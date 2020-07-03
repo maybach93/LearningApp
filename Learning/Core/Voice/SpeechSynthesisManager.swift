@@ -12,7 +12,7 @@ class SpeechSynthesisManager: NSObject {
     
     private let synthesizer = AVSpeechSynthesizer()
     
-    lazy var queue: OperationQueue = {
+    private lazy var queue: OperationQueue = {
         var queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
         return queue
@@ -23,7 +23,9 @@ class SpeechSynthesisManager: NSObject {
         synthesizer.delegate = self
     }
     
-    func play(text: String) {
+    //MARK: - Public
+    
+    public func play(text: String) {
         queue.addOperation {
             let utterance = AVSpeechUtterance(string: text)
             utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")

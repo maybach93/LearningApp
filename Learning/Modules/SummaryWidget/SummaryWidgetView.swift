@@ -122,6 +122,7 @@ struct SummaryWidgetPlanView: View {
         }
     }
 }
+
 struct SummaryWidgetView: View {
     
     @ObservedObject var viewModel: SummaryWidgetViewModel
@@ -131,12 +132,11 @@ struct SummaryWidgetView: View {
     }
     
     var body: some View {
-        switch viewModel.state {
-        case .loading:
-
-            return AnyView(Color(.white).opacity(0.9).cornerRadius(28).frame(height: 332))
-        case .presented(let model):
-            return AnyView(
+        Group {
+            switch viewModel.state {
+            case .loading:
+                Color(.white).opacity(0.9).cornerRadius(28).frame(height: 332)
+            case .presented(let model):
                 ZStack {
                     Color(.white).cornerRadius(28)
                     VStack {
@@ -157,7 +157,8 @@ struct SummaryWidgetView: View {
                         }
                         SummaryWidgetPlanView(model: model)
                     }
-                }.frame(maxHeight: 380))
+                }.frame(maxHeight: 380)
+            }
         }
     }
 }

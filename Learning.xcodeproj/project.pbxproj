@@ -58,6 +58,7 @@
 		19D880D024AD57F700AEF6CF /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D880CF24AD57F700AEF6CF /* VisualEffectView.swift */; };
 		19D880D324AFAAEA00AEF6CF /* ConversationDialogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D880D224AFAAEA00AEF6CF /* ConversationDialogCell.swift */; };
 		19D880D524AFAB1100AEF6CF /* DialogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D880D424AFAB1100AEF6CF /* DialogModel.swift */; };
+		19D880D824AFCFB800AEF6CF /* ConversationItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D880D724AFCFB800AEF6CF /* ConversationItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,7 @@
 		19D880CF24AD57F700AEF6CF /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		19D880D224AFAAEA00AEF6CF /* ConversationDialogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDialogCell.swift; sourceTree = "<group>"; };
 		19D880D424AFAB1100AEF6CF /* DialogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogModel.swift; sourceTree = "<group>"; };
+		19D880D724AFCFB800AEF6CF /* ConversationItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,8 +291,10 @@
 		19D78C8724A53D2A0026EAD7 /* Conversation */ = {
 			isa = PBXGroup;
 			children = (
+				19D880D624AFCFAA00AEF6CF /* Models */,
 				19D78CA524A805EE0026EAD7 /* Cells */,
 				19D78C8824A53D3D0026EAD7 /* ConversationView.swift */,
+				19314BC024A8156C001D922E /* ConversationViewItemsFactory.swift */,
 				19D78C8A24A53D480026EAD7 /* ConversationViewModel.swift */,
 			);
 			path = Conversation;
@@ -346,7 +350,6 @@
 			isa = PBXGroup;
 			children = (
 				19314BBF24A8156C001D922E /* ConversationUserVoiceCell.swift */,
-				19314BC024A8156C001D922E /* ConversationViewItemsFactory.swift */,
 				19314BC324A82DE5001D922E /* ConversationNewWordCell.swift */,
 				19D8809424A8FF4900AEF6CF /* ConversationQuizCell.swift */,
 				19D8809C24A9496200AEF6CF /* ConversationReportCell.swift */,
@@ -383,6 +386,14 @@
 				19D880BB24AD2EE200AEF6CF /* Info.plist */,
 			);
 			path = SummaryWidget;
+			sourceTree = "<group>";
+		};
+		19D880D624AFCFAA00AEF6CF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				19D880D724AFCFB800AEF6CF /* ConversationItemModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,6 +565,7 @@
 				19D880A924AC02DD00AEF6CF /* SummaryModel.swift in Sources */,
 				19D8809B24A9487200AEF6CF /* RingChart.swift in Sources */,
 				19314BC424A82DE5001D922E /* ConversationNewWordCell.swift in Sources */,
+				19D880D824AFCFB800AEF6CF /* ConversationItemModel.swift in Sources */,
 				19D8809F24A94DA400AEF6CF /* DialogReportModel.swift in Sources */,
 				19D78C9724A67E910026EAD7 /* VoiceCommandManager.swift in Sources */,
 				19D78C8B24A53D480026EAD7 /* ConversationViewModel.swift in Sources */,

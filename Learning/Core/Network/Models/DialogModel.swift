@@ -24,7 +24,8 @@ class DialogQuestionModel: Decodable, Identifiable {
 }
 
 struct DialogModel: Decodable, VoiceCommandResponse {
-    enum Keys: String, CodingKey { // declaring our keys
+    
+    enum Keys: String, CodingKey { 
         case topic
         case objective
         case extra

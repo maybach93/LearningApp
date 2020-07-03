@@ -10,13 +10,16 @@ import Combine
 
 class VoiceCommandManager {
     
+    //MARK: - Private
     private var disposeBag: Set<AnyCancellable> = Set()
     
-    var commandRecognizer: VoiceCommandRecognizer = VoiceCommandRecognizer()
-    var speechManager: SpeechSynthesisManager = SpeechSynthesisManager()
-    var network: NetworkProvider = NetworkProvider()
+    private var commandRecognizer: VoiceCommandRecognizer = VoiceCommandRecognizer()
+    private var speechManager: SpeechSynthesisManager = SpeechSynthesisManager()
+    private var network: NetworkProvider = NetworkProvider()
     
-    func appendCommand(command: String) -> Future<VoiceCommandResponse, Never> {
+    //MARK: - Public
+    
+    public func appendCommand(command: String) -> Future<VoiceCommandResponse, Never> {
         return Future<VoiceCommandResponse, Never>{ [unowned self] promise in
             switch commandRecognizer.append(voiceTranscript: command) {
             case .learnNewWord:
@@ -39,7 +42,8 @@ class VoiceCommandManager {
             }.store(in: &disposeBag)
             case .startDialog(.none):
                 network.request(DialogModel.self, route: .dialog, httpMethod: .get).sink { (error) in
-                } receiveValue: { value in
+                } receiveValue: { [weak self] value in
+                    self?.speechManager.play(text: value.objective)
                     promise(.success(value))
             }.store(in: &disposeBag)
             default:

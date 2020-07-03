@@ -17,7 +17,6 @@ struct ActivityIndicator: View {
                 Group {
                     Circle()
                         .frame(width: geometry.size.width / 8, height: geometry.size.height / 8)
-                        //.scaleEffect(!self.isAnimating ? 1.0 - CGFloat(index) / 6.0 : 0.2 + CGFloat(index) / 6.0)
                         .offset(y: geometry.size.width / 10 - geometry.size.height / 2).foregroundColor(Color.white.opacity(0.8))
                 }.frame(width: geometry.size.width, height: geometry.size.height)
                     .rotationEffect(!self.isAnimating ? .degrees(0) : .degrees(360))
