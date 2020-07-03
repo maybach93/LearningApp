@@ -57,6 +57,44 @@ struct SummaryWidgetRingView: View {
     }
 }
 
+struct SummaryWidgetProgressView: View {
+    
+    var model: SummaryModel
+    
+    var body: some View {
+        VStack {
+        
+            HStack {
+                Circle().foregroundColor(Color(.brightYellow)).frame(width: 10, height: 10)
+                Text("Words").foregroundColor(.black).font(.footnote)
+                ZStack {
+                    Color(.brightYellow).cornerRadius(10)
+                    Text("\(model.words.completed) of \(model.words.total)").foregroundColor(.white).font(.caption2).fontWeight(.black)
+                }.frame(maxWidth: 80)
+                Spacer()
+            }
+            HStack {
+                Circle().foregroundColor(.green).frame(width: 10, height: 10)
+                Text("Grammar").foregroundColor(.black).font(.footnote)
+                ZStack {
+                    Color.green.cornerRadius(10)
+                    Text("\(model.grammar.completed) of \(model.grammar.total)").foregroundColor(.white).font(.caption2).fontWeight(.black)
+                }.frame(maxWidth: 60)
+                Spacer()
+            }
+            HStack {
+                Circle().foregroundColor(.red).frame(width: 10, height: 10)
+                Text("Practice").foregroundColor(.black).font(.footnote)
+                ZStack {
+                    Color(UIColor.red).opacity(1).cornerRadius(10)
+                    Text("\(model.practice.completed) of \(model.practice.total)").foregroundColor(.white).font(.caption2).fontWeight(.black).shadow(color: .white, radius: 5, x: 0, y: 0)
+                }.frame(maxWidth: 60)
+                Spacer()
+            }
+            Spacer()
+        }
+    }
+}
 struct SummaryWidgetView: View {
     
     @ObservedObject var viewModel: SummaryWidgetViewModel
@@ -68,6 +106,7 @@ struct SummaryWidgetView: View {
     var body: some View {
         switch viewModel.state {
         case .loading:
+
             return AnyView(Color(.white).opacity(0.9).cornerRadius(28).frame(height: 332))
         case .presented(let model):
             return AnyView(
@@ -86,38 +125,8 @@ struct SummaryWidgetView: View {
                             SummaryWidgetRingView(model: model).frame(width: 120, height: 120)
                             Spacer()
                         
+                            SummaryWidgetProgressView(model: model)
                             
-                            VStack {
-                            
-                                HStack {
-                                    Circle().foregroundColor(Color(.brightYellow)).frame(width: 10, height: 10)
-                                    Text("Words").foregroundColor(.black).font(.footnote)
-                                    ZStack {
-                                        Color(.brightYellow).cornerRadius(10)
-                                        Text("\(model.words.completed) of \(model.words.total)").foregroundColor(.white).font(.caption2).fontWeight(.black)
-                                    }.frame(maxWidth: 80)
-                                    Spacer()
-                                }
-                                HStack {
-                                    Circle().foregroundColor(.green).frame(width: 10, height: 10)
-                                    Text("Grammar").foregroundColor(.black).font(.footnote)
-                                    ZStack {
-                                        Color.green.cornerRadius(10)
-                                        Text("\(model.grammar.completed) of \(model.grammar.total)").foregroundColor(.white).font(.caption2).fontWeight(.black)
-                                    }.frame(maxWidth: 60)
-                                    Spacer()
-                                }
-                                HStack {
-                                    Circle().foregroundColor(.red).frame(width: 10, height: 10)
-                                    Text("Practice").foregroundColor(.black).font(.footnote)
-                                    ZStack {
-                                        Color(UIColor.red).opacity(1).cornerRadius(10)
-                                        Text("\(model.practice.completed) of \(model.practice.total)").foregroundColor(.white).font(.caption2).fontWeight(.black).shadow(color: .white, radius: 5, x: 0, y: 0)
-                                    }.frame(maxWidth: 60)
-                                    Spacer()
-                                }
-                                Spacer()
-                            }
                         }
                         HStack {
                             Text("Today's plan:").foregroundColor(.black).font(.footnote).fontWeight(.bold).padding(.leading, 15)
