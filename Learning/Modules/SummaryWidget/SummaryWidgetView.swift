@@ -125,6 +125,8 @@ struct SummaryWidgetPlanView: View {
 
 struct SummaryWidgetView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
     @ObservedObject var viewModel: SummaryWidgetViewModel
     
     init(viewModel: SummaryWidgetViewModel) {
@@ -138,7 +140,7 @@ struct SummaryWidgetView: View {
                 Color(.white).opacity(0.9).cornerRadius(28).frame(height: 332)
             case .presented(let model):
                 ZStack {
-                    Color(.white).cornerRadius(28)
+                    Color(colorScheme == .dark ? UIColor.white.withAlphaComponent(0.3) : .white).cornerRadius(28)
                     VStack {
                         HStack {
                             Text("Day \(model.days.completed) out of \(model.days.total)").foregroundColor(.blue).font(.largeTitle).fontWeight(.heavy)
