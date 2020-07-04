@@ -40,5 +40,7 @@ Practice speaking by answering questions on topics, then get report regarding yo
 
 ![](Resources/dialog.gif)
 
-### Server emulation
+### Server mock
+
+The app utilize mock server deployed on (https://github.com/maybach93/Learning-api-server) repo. So, for the moment all API requests are static.
 
