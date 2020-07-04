@@ -23,8 +23,14 @@ See you summary on home screen. Choose any size of widget that appropriate for y
 ![](Resources/widgetMedium.png)
 ![](Resources/widgetLarge.png)
 
-
-
+#### Learn new words
+Voice synthesis spells a word, then you should speak it in order to proceed
 ![](Resources/learnNewWords.gif)
+
+#### Quiz
+Answer the quiz by voice
 ![](Resources/quiz.gif)
+
+#### Practice
+Practice speaking by answering questions on topics, then get report regarding your performance
 ![](Resources/dialog.gif)
