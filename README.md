@@ -16,9 +16,15 @@ This app is all about learning english through speaking. Just press "speak" butt
 
 #### Home
 ![](Resources/home.png)
+
+#### Widgets
+See you summary on home screen. Choose any size of widget that appropriate for you. 
 ![](Resources/widgetSmall.png)
 ![](Resources/widgetMedium.png)
 ![](Resources/widgetLarge.png)
+
+
+
 ![](Resources/learnNewWords.gif)
 ![](Resources/quiz.gif)
 ![](Resources/dialog.gif)
