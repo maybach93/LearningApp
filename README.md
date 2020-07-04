@@ -15,8 +15,10 @@ This app is all about learning english through speaking. Just press "speak" butt
 
 
 #### Home
+The app also supports dark mode
 
 ![](Resources/home.png)
+![](Resources/home_dark.png)
 
 #### Widgets
 See you summary on home screen. Choose any size of widget that appropriate for you. 
