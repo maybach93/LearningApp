@@ -78,6 +78,8 @@ struct MainMenusView: View {
 
 struct MainView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+
     @State var isSpeakPressed: Bool = false
     @ObservedObject var viewModel: MainViewModel
     
@@ -90,9 +92,9 @@ struct MainView: View {
     
     var body: some View {
         return ZStack {
-            Color(.main).edgesIgnoringSafeArea(.all)
+            Color(colorScheme == .dark ? .clear : .main).edgesIgnoringSafeArea(.all)
             if let summaryWidgetView = self.summaryWidgetView {
-                MainMenusView(summaryWidgetView: summaryWidgetView)
+                MainMenusView(summaryWidgetView: summaryWidgetView).frame(maxWidth: 500)
             }
             VStack {
                 Spacer()
